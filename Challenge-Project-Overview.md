@@ -34,7 +34,7 @@
 - **Overall Recommendation:** REVISE
 
 ### Advisor Feedback Draft
-The proposal offers a strong, high-visibility outcome in RAG. To ensure success, first, explicitly mandate the use of Ragas or TruLens for systematic evaluation to avoid subjective testing. Second, drop the 'Agentic' requirement to focus exclusively on a robust Retrieval-Augmented Generation pipeline; agents introduce unpredictable execution loops that are difficult to debug in a 12-week timeframe. Please confirm these scoping constraints by Friday.
+The proposal offers a strong, high-visibility outcome in RAG. To ensure success, first, explicitly mandate the use of Ragas or TruLens for systematic evaluation to avoid subjective testing. Second, replace the 'Agentic' requirement with a focus on a robust Retrieval-Augmented Generation pipeline. Reserve Agentic AI for the stretch goals, as agents introduce unpredictable execution loops that can be particularly difficult to debug given the AI Studio program's timeframe and resource constraints.
 
 ---
 
