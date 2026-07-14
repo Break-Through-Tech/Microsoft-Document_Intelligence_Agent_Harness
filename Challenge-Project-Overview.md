@@ -18,127 +18,112 @@
 
 ---
 
-### 🔍 SME Feedback from the Break Through Tech Evaluation Team
+## 📋 BTT Internal Evaluation Notes
+*(This section is for BTT staff and CAs only — remove before sharing with students)*
 
-*Challenge Advisor: Please address the following feedback by editing this page. Your AI Studio Coach can help make project adjustments as needed, too. In addition to the grey section above, this section should be removed before sharing the repo with your student team.*
+### Technical Vetting
+| Check | Status | Notes |
+| :--- | :--- | :--- |
+| Python Compatibility | 🟢 | Project relies on LangChain/LlamaIndex stack, which is standard Python. However, managing agentic flows often drifts into complex orchestrations that may overcomplicate for the student base. |
+| Data Readiness | 🟡 | Unstructured enterprise documents (PDF/Word) inherently require intensive OCR and chunking logic. Without pre-cleaned, ingested data, students risk spending the bulk of the 12 weeks on pipeline engineering rather than RAG optimization. |
+| Resource Check | 🟢 | Resource requirements are low (embedding models are small/local), provided students stick to Hugging Face local models rather than paid OpenAI APIs. |
+
+### Internal Scores
+- **Student Fit Score:** 6/10
+- **Technical Depth Score:** 8/10
+- **Overall Recommendation:** REVISE
+
+### Advisor Feedback Draft
+The proposal offers a strong, high-visibility outcome in RAG. To ensure success, first, explicitly mandate the use of Ragas or TruLens for systematic evaluation to avoid subjective testing. Second, drop the 'Agentic' requirement to focus exclusively on a robust Retrieval-Augmented Generation pipeline; agents introduce unpredictable execution loops that are difficult to debug in a 12-week timeframe. Please confirm these scoping constraints by Friday.
 
 ---
 
-# [Project Title]
+# Document Intelligence Agent Harness
 
-**Company / Org:** [Company / Org Name]  
-**Challenge Advisor:** [Name, Title, Email]  
-**Program:** Break Through Tech AI Studio - Fall 2026
+**Company / Org:** Microsoft  
+**Challenge Advisor:** Vikas Goyal, goyal3vikas@gmail.com  
+**Program:** Break Through Tech AI Studio - Fall 2026  
 
 ---
 
-## 🏢 About [Company / Org Name]
-
-[2-3 sentences about your company: what you do, your industry, etc. You may also choose to specify your specific department or team.]
+## 🏢 About Microsoft
+Microsoft is a global technology leader dedicated to empowering every person and organization on the planet to achieve more through innovation in software, cloud computing, and AI services. This project aligns with Microsoft’s objective to modernize enterprise information retrieval, specifically focusing on helping organizations derive actionable insights from massive, unstructured data repositories.
 
 ---
 
 ## 🎯 The Challenge
-
 ### Project Summary
-[In 2-3 sentences, describe what you're asking the team to do. Be specific about the type of data, ML techniques, and potential impact.]
-
-> **Example:** "In this project, your team will use customer transaction data and classification algorithms to build a model that predicts which users are likely to churn. This will help our retention team prioritize outreach."
+This project challenges students to develop an enterprise-ready document intelligence solution that ingests, indexes, and retrieves information from complex organizational documents. By leveraging RAG frameworks and document parsing, the team will transform static files like PDFs and Word documents into a highly discoverable and trustworthy knowledge base.
 
 ### Success Criteria
-[What does success look like? Describe evaluation metrics (accuracy, F1 score, etc.) or qualitative outcomes that would make this project valuable to your company.]
+Functional completeness, Answer quality (factual grounding), Citation accuracy, Trustworthiness, User experience, System performance, Enterprise readiness.
 
 ### Project Milestones
-
-Use these milestones to guide your work. Your team will create a **GitHub Projects board** to track tasks within each milestone.
-
+Use these milestones to guide your work. Your team will create a GitHub Projects board to track tasks within each milestone.
 | Month | Milestone | Key Activities |
 |-------|-----------|----------------|
-| **September** | [e.g., Data Understanding] | [e.g., Explore dataset, handle missing values, document findings] |
-| **October** | [e.g., Model Development] | [e.g., Train baseline model, experiment with approaches, iterate] |
-| **November** | [e.g., Evaluation & Presentation] | [e.g., Finalize model, prepare presentation, document results] |
+| **September** | Data Exploration & Preprocessing | Develop ingestion scripts for PDF/Word, define chunking strategies, and implement initial vector storage for unstructured text. |
+| **October** | Feature Engineering & Baseline Modeling | Construct retrieval pipelines, implement semantic search, and deploy baseline RAG models to evaluate information extraction accuracy. |
+| **November** | Model Optimization & Evaluation | Perform hyperparameter tuning on retrieval nodes, validate grounding and citation precision, and stress-test system performance. |
+| **December** | Insights, Deliverables & Presentation | Finalize the enterprise-ready interface, package documentation, and present business impact reports based on the optimized agent logic. |
 
 > **Note for the team:** Please create a GitHub Projects board in this repository to break these milestones into weekly tasks. Go to the **Projects** tab → **New project** → Choose **Board** → Add columns for each month.
 
 ---
 
 ## 📊 Dataset
-
-**Name and Source:** [Dataset name and where it's from]  
-**Format:** [e.g., CSV, JSON, images]  
-**Size:** [Approximate size in MB/GB]  
-**Location:** [Link to dataset or instructions for accessing it]
+**Name and Source:** Enterprise Document Suite (Synthetic/Public Open Source)  
+**Format:** PDF, DOCX, TXT  
+**Size:** under 1gb  
+**Location:** To be initialized in the repository data folder.
 
 ### Key Details
-- [Brief description of what's in the data]
-- [Any known limitations or preprocessing needed]
-- [Link to data dictionary or documentation, if available]
+- Enterprise documents (PDFs, Word documents, and other unstructured content). The team will generate synthetic data or use a publicly available one.
+- Focus on consistent metadata extraction and normalization across varying document structures to ensure high-quality retrieval accuracy.
 
 ---
 
 ## 🛠️ Suggested Approach
-
-**ML Problem Type:** [e.g., Classification, Regression, NLP, Computer Vision, LLM/RAG]
-
+**ML Problem Type:** NLP & RAG / Multi-Agent Systems  
 **Recommended Libraries:**
-- [e.g., pandas, scikit-learn, TensorFlow, Hugging Face]
-
-**Evaluation Metrics:**
-- [e.g., Accuracy, Precision/Recall, RMSE, BLEU score]
+- Vector embeddings (Sentence-Transformers)
+- Semantic search (FAISS / ChromaDB)
+- Retrieval-augmented generation (LangChain / LlamaIndex)
+- AI agents (LangGraph or equivalent orchestration)
+**Evaluation Metrics:** Ragas (Faithfulness, Answer Relevance, Context Precision), Latency, and Factual Grounding rate.
 
 ---
 
 ## 📚 Resources to Get Started
-
 The following resources will help your team understand the problem space and potential technical approaches for this project:
-
 **Background Reading:**
-- [e.g., Link to an article or blog post about the problem domain]
-- [e.g., Link to an industry report or case study]
-
+- Microsoft Research Blog: Advances in Document Intelligence and Large Language Models.
 **Technical Tutorials:**
-- [e.g., Link to a free tutorial on the ML technique(s) involved]
-- [e.g., Link to documentation for a key library or tool]
-
+- LangChain Documentation: "RAG from Scratch" video series and documentation.
 **Code Examples:**
-- [e.g., Link to a relevant GitHub repo]
-- [e.g., Link to a sample implementation or starter code]
-
-**Other:**
-- [Links to any additional resources — e.g., papers, videos, podcasts, etc.]
-
-*Feel free to explore beyond these, and share anything interesting you find with me!*
+- Sample GitHub repositories showcasing LlamaIndex ingestion pipelines for PDF documents.
 
 ---
 
-## 🤝 How We'll Work Together (v2)
-
-**Official check-ins:** During our biweekly 45-minute AI Studio Lab Section meeting block (2nd and 4th week of every month)
-
- **Other ways to reach out to me with questions:** 
-* [e.g., Your team's channel within Break Through Tech’s Discord space]
-* [e.g., Email; please copy your teammates and AI Studio Coach]
-* [e.g., Request a team check-in on Zoom]
-* [Note: I will aim to respond within 48 hours. Please reach out to your AI Studio Coach with urgent questions.]
-
-> 💡 **Challenge Advisor: Please update the above based on your availability and preference. If you are not able to answer questions or meet with fellows outside of the biweekly Lab Section check-ins, simply write in "N/A (only available during the official check-in times)"**
-
-**Recommended free coding / collaboration tools**
-* […]
-* […]
+## 🤝 How We'll Work Together
+**Check-ins:** During our biweekly 60-min AI Studio Lab Section meeting block (2nd and 4th week of every month)  
+**Communication:** Microsoft Teams or Slack  
+**Response time:** 24-48 hours during business days  
+**Recommended Tools:**
+- **Coding:** Google Colab Free Tier  
+- **Collaboration:** GitHub, Notion  
+- **Virtual Meetings:** Zoom, Google Meet  
 
 ---
 
 ## 🚀 Getting Started
+1. **Review this overview document** and note any questions for our first meeting.
+2. **Begin reviewing the dataset** using the link provided in the Dataset section.
+3. **Read the GitHub Projects documentation** [here](https://docs.github.com/en/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects).
 
-1. **Review this overview document** and note any questions for our first meeting
-2. **Begin reviewing the dataset** using the link above
-3. **Read the GitHub Projects documentation** [here](https://docs.github.com/en/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)
-
-I’m excited to work with you!
+I'm excited to work with you!
 
 ---
 
 ## ❓ Questions?
-
-Please bring any questions to our first meeting during the week of August 24th (Break Through Tech’s Bridge to Studio - Session C). 
+Please bring any questions to our first meeting during the week of August 24th (Break Through Tech's Bridge to Studio - Session B).
